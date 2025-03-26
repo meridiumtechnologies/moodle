@@ -3308,7 +3308,7 @@ class lesson extends lesson_base {
             $data->newpageid = $this->get_next_page($page->nextpageid);
 
             $customdata = array(
-                'title'     => $page->title,
+                'title'     => format_string($page->title, true, ['context' => context_module::instance($data->id)]),
                 'contents'  => $page->get_contents()
             );
             $mform = new lesson_page_without_answers($CFG->wwwroot.'/mod/lesson/continue.php', $customdata);
